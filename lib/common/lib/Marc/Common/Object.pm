@@ -18,7 +18,7 @@ use namespace::autoclean;
 
 our $VERSION = '0.01';
 
-has 'debug'             => (is => 'ro', isa => 'Str', required => 1, default => 0 );
+has 'debug'   => (is => 'rw', isa => 'Str', required => 1, default => 0 );
 
 sub dump {
     my $self = shift;
@@ -36,8 +36,6 @@ after 'new' => sub {
         print Dumper \@_;
     }
 };
-    
-#__PACKAGE__->meta->make_immutable;
 
 1; # End of Module
 
