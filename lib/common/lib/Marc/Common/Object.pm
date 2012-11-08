@@ -1,16 +1,7 @@
-#------------------------------------------------------------------------------
-# $Id$
-# $HeadURL$
-#------------------------------------------------------------------------------
 package Marc::Common::Object;
 
 use warnings;
 use strict;
-
-use base qw( Exporter );
-our @EXPORT_OK = qw/ /;
-
-our %EXPORT_TAGS = ( ALL => [ @EXPORT_OK ] );
 
 use Data::Dumper;
 # Some Data::Dumper settings:

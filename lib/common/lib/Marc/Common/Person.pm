@@ -35,10 +35,10 @@ has 'id'                => (
     is       => 'ro', 
     isa      => 'Int',
     required => 1,
-    builder  => '_builder_id',
+    builder  => '_build_id',
 );
 
-sub _builder_id { return $id++; }
+sub _build_id { return $id++; }
 __PACKAGE__->meta->make_immutable;
 
 1; # End of Module
