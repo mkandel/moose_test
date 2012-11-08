@@ -1,0 +1,16 @@
+Marc::Schedule version 0.0.1
+
+This is what the name says it is ... its some common stuff, base classes only at the moment but I'll probably stick a Util module in here as well at some point.
+
+
+DEPENDENCIES
+
+None.
+
+
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2012, Marc
+
+This code is released as Apathyware:
+"The code doesn't care what you do with it, and neither do I."
