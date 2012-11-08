@@ -2,6 +2,8 @@
 use strict;
 use warnings;
 
+use 5.012;
+
 use Time::HiRes qw( gettimeofday );
 my $start = gettimeofday();
 
@@ -21,7 +23,8 @@ use lib "$FindBin::Bin/../lib/schedule/lib/";
 use Marc::Common::Person;
 use Marc::Schedule::Person;
 
-my $mydebug;
+# TODO: Testing
+my $mydebug = 1;
 
 GetOptions(
     "debug|d"        => \$mydebug,
@@ -53,6 +56,29 @@ my $p2 = Marc::Schedule::Person->new( %attrs2 );
 
 print Dumper $p1;
 print Dumper $p2;
+
+say "This should fail (missig required arg), let's eval and trap it:";
+
+my %attrs3 = (
+    f_name     => 'BAD',
+    l_name     => 'BOY',
+    email      => 'badboy@nowhere.net',
+    cube_loc   => 'B-6969',
+);
+
+my $p3;
+eval {
+    $p3 = Marc::Schedule::Person->new( %attrs3 );
+};
+if ( $@ ){
+    say "Yup, it died:";
+    foreach ( $@ ){
+        say "\t$_";
+    }
+} else {
+    say "Hmmmm ...";
+    print Dumper $p3;
+}
 
 END{
     if ( $mydebug ){
