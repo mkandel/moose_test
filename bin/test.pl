@@ -122,6 +122,34 @@ for my $attr ( sort @attrs ) {
 #say "Attempt to print 'Marc::Common::Object::debug' code ...:";
 #print Dumper \&Marc::Common::Object::debug or die "Error: $!\n";
 
+say "This should die too:";
+my $obj;
+eval{
+    use Marc::Common::Object;
+    $obj = Marc::Common::Object->new();
+};
+if ( $@ ){
+    say "Yup, it died:";
+    say $@;
+#    my @missing;
+#    foreach ( $@ ){
+#        chomp;
+#        say "\t$_";
+        ## Ex: Attribute (w_phone) is required
+        ##                           Capture what's insude the perens
+#        $_ =~ /Attribute \((.*)\) is required/;
+#        push @missing, $1;
+#    }
+#    say "analysis - missing arg:";
+#    foreach my $missing ( @missing ){
+#        say "\t$missing";
+#    }
+} else {
+    say "Hmmmm ...";
+    print Dumper $p3;
+}
+
+
 END{
     if ( $mydebug ){
         my $run_time = gettimeofday() - $start;
