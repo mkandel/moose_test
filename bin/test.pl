@@ -40,6 +40,7 @@ my %attrs1 = (
     w_phone    => '408-420-4702',
     email      => 'joeblow@nowhere.net',
     cube_loc   => 'B-6969',
+    debug      => 1,
 );
 
 my %attrs2 = (
@@ -99,6 +100,26 @@ if ( $@ ){
     print Dumper $p3;
 }
 
+say "Meta tests:";
+my $meta = $p1->meta();
+say "Attributes:";
+for my $attr ( $meta->get_all_attributes ) {
+    print "\t", $attr->name, "\n";
+}
+
+say "Methods:";
+for my $method ( $meta->get_all_methods ) {
+    my $tmp_val = $method->fully_qualified_name();
+    print "\t$tmp_val\n";
+    print Dumper \&$tmp_val;
+    print "\n";
+}
+#print Dumper $meta;
+#say "Attempt to print 'Marc::Common::Object::new' code ...:";
+#print Dumper \&Marc::Common::Object::new or die "Error: $!\n";
+#say "Attempt to print 'Marc::Common::Object::debug' code ...:";
+#print Dumper \&Marc::Common::Object::debug or die "Error: $!\n";
+
 END{
     if ( $mydebug ){
         my $run_time = gettimeofday() - $start;
@@ -111,6 +132,6 @@ END{
                 . " seconds ($run_time seconds).\n";
         }
     }   
-}
+} 
 
 __END__
