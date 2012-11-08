@@ -16,7 +16,8 @@ local $Data::Dumper::Useqq  = 1;
 local $Data::Dumper::Indent = 3;
 
 use FindBin;
-use lib "$FindBin::Bin/../lib";
+use lib "$FindBin::Bin/../lib/common/lib/";
+use lib "$FindBin::Bin/../lib/schedule/lib/";
 use Marc::Common::Person;
 use Marc::Schedule::Person;
 
