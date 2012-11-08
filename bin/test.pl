@@ -36,6 +36,7 @@ $prog =~ s/^.*\///;
 my %attrs1 = (
     f_name     => 'Joe',
     l_name     => 'Blow',
+    u_name     => 'jblow',
     w_phone    => '408-420-4702',
     email      => 'joeblow@nowhere.net',
     cube_loc   => 'B-6969',
@@ -44,6 +45,7 @@ my %attrs1 = (
 my %attrs2 = (
     f_name     => 'Jane',
     l_name     => 'Doe',
+    u_name     => 'jdoe',
     w_phone    => '408-720-9933',
     c_phone    => '666-666-6666',
     email      => 'janedoe@nowhere.net',
@@ -54,14 +56,19 @@ my %attrs2 = (
 my $p1 = Marc::Common::Person->new( %attrs1 );
 my $p2 = Marc::Schedule::Person->new( %attrs2 );
 
-print Dumper $p1;
-print Dumper $p2;
+#print Dumper $p1;
+#print Dumper $p2;
+my $p1_dump = $p1->dump();
+my $p2_dump = $p2->dump();
+say "Object Dumps:";
+print "$p1_dump\n\n$p2_dump\n";
 
 say "This should fail (missig required arg), let's eval and trap it:";
 
 my %attrs3 = (
     f_name     => 'BAD',
     l_name     => 'BOY',
+    u_name     => 'bboy',
 #    w_phone    => '123-123-1234',
     email      => 'badboy@nowhere.net',
     cube_loc   => 'B-6969',

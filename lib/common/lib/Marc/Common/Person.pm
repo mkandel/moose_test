@@ -13,6 +13,8 @@ local $| = 1;
 ## We'll try Moose
 use Moose;
 use namespace::autoclean;
+#use Marc::Common::Object;
+extends 'Marc::Common::Object';
 
 our $VERSION = '0.01';
 
@@ -23,6 +25,7 @@ my $id = 0;
 ## required:
 has 'f_name'            => (is => 'ro', isa => 'Str', required => 1 );
 has 'l_name'            => (is => 'ro', isa => 'Str', required => 1 );
+has 'u_name'            => (is => 'ro', isa => 'Str', required => 1 );
 has 'w_phone'           => (is => 'rw', isa => 'Str', required => 1 );
 has 'email'             => (is => 'rw', isa => 'Str', required => 1 );
 has 'cube_loc'          => (is => 'rw', isa => 'Str', required => 1 );
