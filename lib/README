@@ -1,7 +1,4 @@
-moose_test
-==========
-
-Testing Moose
+These are individual "packages".  schedule's libraries depend on common's libraries, common only has Perl/CPAN dependencies.
 
 
 COPYRIGHT AND LICENCE
