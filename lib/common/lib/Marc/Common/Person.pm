@@ -14,7 +14,7 @@ local $| = 1;
 use Moose;
 use namespace::autoclean;
 #use Marc::Common::Object;
-extends 'Marc::Common::Object';
+with 'Marc::Common::Object';
 
 our $VERSION = '0.01';
 

@@ -103,17 +103,19 @@ if ( $@ ){
 say "Meta tests:";
 my $meta = $p1->meta();
 say "Attributes:";
-for my $attr ( $meta->get_all_attributes ) {
+my @attrs = $meta->get_all_attributes();
+for my $attr ( sort @attrs ) {
     print "\t", $attr->name, "\n";
 }
 
-say "Methods:";
-for my $method ( $meta->get_all_methods ) {
-    my $tmp_val = $method->fully_qualified_name();
-    print "\t$tmp_val\n";
-    print Dumper \&$tmp_val;
-    print "\n";
-}
+#say "Methods:";
+#my @meths = $meta->get_all_methods();
+#for my $method ( sort @meths ) {
+#    my $tmp_val = $method->fully_qualified_name();
+#    print "\t$tmp_val\n\t";
+#    print Dumper \&$tmp_val;
+#    print "\n";
+#}
 #print Dumper $meta;
 #say "Attempt to print 'Marc::Common::Object::new' code ...:";
 #print Dumper \&Marc::Common::Object::new or die "Error: $!\n";

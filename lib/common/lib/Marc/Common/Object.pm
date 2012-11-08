@@ -13,7 +13,7 @@ local $| = 1;
 use 5.012;
 
 ## We'll try Moose
-use Moose;
+use Moose::Role;
 use namespace::autoclean;
 
 our $VERSION = '0.01';
@@ -37,7 +37,7 @@ after 'new' => sub {
     }
 };
     
-__PACKAGE__->meta->make_immutable;
+#__PACKAGE__->meta->make_immutable;
 
 1; # End of Module
 
