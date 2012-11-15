@@ -1,4 +1,4 @@
-#!/usr/bin/env perl -w
+#!/usr/local/bin/perl -w
 use strict;
 use warnings;
 
@@ -16,6 +16,7 @@ use Data::Dumper;
 # Some Data::Dumper settings:
 local $Data::Dumper::Useqq  = 1;
 local $Data::Dumper::Indent = 3;
+local $Data::Dumper::Deparse  = 1;
 
 use FindBin;
 use lib "$FindBin::Bin/../lib/common/lib/";
@@ -108,14 +109,16 @@ for my $attr ( sort @attrs ) {
     print "\t", $attr->name, "\n";
 }
 
-#say "Methods:";
-#my @meths = $meta->get_all_methods();
-#for my $method ( sort @meths ) {
-#    my $tmp_val = $method->fully_qualified_name();
-#    print "\t$tmp_val\n\t";
-#    print Dumper \&$tmp_val;
-#    print "\n";
-#}
+say "Methods:";
+my @meths = $meta->get_all_methods();
+for my $method ( sort @meths ) {
+    my $tmp_val = $method->fully_qualified_name();
+#    if ( $tmp_val =~ /new/ ){
+        print "\t$tmp_val\n\t";
+#        print Dumper \&$tmp_val if $tmp_val =~ /new/;
+        print "\n";
+#    }
+}
 #print Dumper $meta;
 #say "Attempt to print 'Marc::Common::Object::new' code ...:";
 #print Dumper \&Marc::Common::Object::new or die "Error: $!\n";
