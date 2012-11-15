@@ -1,14 +1,11 @@
 #!perl
 use strict;
 use warnings;
-use Test::More;
-#use Test::More tests => 3;
+use Test::More tests => 2;
 use FindBin qw{ $Bin };
 use lib "$Bin/../lib";
 
 my @subs = qw{};
-
-#use Marc::Common::Person;
 
 BEGIN{
     use_ok( 'Marc::Common::Person' );
@@ -29,7 +26,3 @@ BEGIN{
 
     my $obj = new_ok( 'Marc::Common::Person' => \@arr );
 }
-
-#can_ok( __PACKAGE__, 'new' );
-#ok( __PACKAGE__->
-done_testing();
