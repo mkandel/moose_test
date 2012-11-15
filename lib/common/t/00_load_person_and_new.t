@@ -1,11 +1,11 @@
 #!perl
 use strict;
 use warnings;
+
 use Test::More tests => 2;
+
 use FindBin qw{ $Bin };
 use lib "$Bin/../lib";
-
-my @subs = qw{};
 
 BEGIN{
     use_ok( 'Marc::Common::Person' );
