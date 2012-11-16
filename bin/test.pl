@@ -109,16 +109,16 @@ for my $attr ( sort @attrs ) {
     print "\t", $attr->name, "\n";
 }
 
-#say "Methods:";
-#my @meths = $meta->get_all_methods();
-#for my $method ( sort @meths ) {
-#    my $tmp_val = $method->fully_qualified_name();
+say "Methods:";
+my @meths = $meta->get_all_methods();
+for my $method ( sort @meths ) {
+    my $tmp_val = $method->fully_qualified_name();
 #    if ( $tmp_val =~ /new/ ){
-#        print "\t$tmp_val\n\t";
-#        print Dumper \&$tmp_val if $tmp_val =~ /new/;
-#        print "\n";
+        print "\t$tmp_val\n\t";
+        print Dumper \&$tmp_val;
+        print "\n";
 #    }
-#}
+}
 
 #print Dumper $meta;
 #say "Attempt to print 'Marc::Common::Object::new' code ...:";

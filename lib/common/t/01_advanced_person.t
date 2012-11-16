@@ -2,8 +2,8 @@
 use strict;
 use warnings;
 
-use Test::More;
-#use Test::More tests => 8;
+#use Test::More;
+use Test::More tests => 10;
 use Test::Exception;
 
 use FindBin qw{ $Bin };
@@ -45,9 +45,26 @@ my $obj2 = new_ok( 'Marc::Common::Person' => \@arr2 ); # 3
 
 ok( $obj1->full_name() eq 'Joe Blow', 'Testing $obj1->full_name()'); # 4
 ok( $obj2->full_name() eq 'Jane Doe', 'Testing $obj2->full_name()'); # 5
+
 ok( $obj1->f_name() eq 'Joe', 'Testing $obj1->f_name()');            # 6
 ok( $obj1->l_name() eq 'Blow', 'Testing $obj1->l_name()');           # 7
+
 ok( $obj2->f_name() eq 'Jane', 'Testing $obj2->f_name()');           # 8
 ok( $obj2->l_name() eq 'Doe', 'Testing $obj2->l_name()');            # 9
 
-done_testing();
+## Tests that should fail:
+
+## Missing required attribute:
+my %attrs3 = ( 
+    f_name     => 'BAD',
+    l_name     => 'BOY',
+    u_name     => 'bboy',
+#    w_phone    => '123-123-1234',
+    email      => 'badboy@nowhere.net',
+    cube_loc   => 'B-6969',
+);
+
+my $obj3;
+dies_ok { $obj3 = Marc::Common::Person->new( %attrs3 ) } 'Missing required arg'; # 10
+
+#done_testing();
