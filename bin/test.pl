@@ -153,6 +153,11 @@ if ( $@ ){
     print Dumper $p3;
 }
 
+say "Full names:";
+say "\t", $p1->full_name();
+say "\t", $p2->full_name();
+my $p1_name = $p1->full_name();
+say "This ($p1_name) is a '", ref $p1_name, "' thingy...";
 
 END{
     if ( $mydebug ){

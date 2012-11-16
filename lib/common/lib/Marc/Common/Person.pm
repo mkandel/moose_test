@@ -40,9 +40,14 @@ has 'id'                => (
     required => 1,
     builder  => '_build_id',
 );
-
 sub _build_id { return $id++; }
-__PACKAGE__->meta->make_immutable;
+
+## Method to retrieve textual full name
+sub full_name {
+    my $self = shift;
+
+    return $self->f_name(). " ". $self->l_name();
+}
 
 1; # End of Module
 

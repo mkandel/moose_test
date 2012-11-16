@@ -3,6 +3,8 @@ use strict;
 use warnings;
 
 use 5.012;
+use Test::More skip_all => 'Not Implemented!';
+
 
 use Time::HiRes qw( gettimeofday );
 my $start = gettimeofday();

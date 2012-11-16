@@ -1,4 +1,6 @@
 #!perl
+use strict;
+use warnings;
 
 if (!require Test::Perl::Critic) {
     Test::More::plan(
