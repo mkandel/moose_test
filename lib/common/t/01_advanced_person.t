@@ -2,8 +2,8 @@
 use strict;
 use warnings;
 
-#use Test::More;
-use Test::More tests => 10;
+use Test::More;
+#use Test::More tests => 11;
 use Test::Exception;
 
 use FindBin qw{ $Bin };
@@ -11,7 +11,7 @@ use lib "$Bin/../lib";
 
 #use Marc::Common::Person;
 BEGIN{
-    use_ok( 'Marc::Common::Person' ); # 1
+    use_ok( 'Marc::Common::Person' );
 }
 
 my %attrs1 = ( 
@@ -21,7 +21,6 @@ my %attrs1 = (
     w_phone    => '408-420-4702',
     email      => 'joeblow@nowhere.net',
     cube_loc   => 'B-6969',
-    debug      => 0,
 );
 
 my %attrs2 = ( 
@@ -32,27 +31,48 @@ my %attrs2 = (
     c_phone    => '666-666-6666',
     email      => 'janedoe@nowhere.net',
     cube_loc   => 'A-6969',
-    pager      => 'some@pager.adr',
 );
 
 ## new_ok requires an arrayref, coerce the hashes to arrays:
+## this is pretty silly ... probably my own ignorance ...
+## this didn't work: my $obj1 = new_ok( 'Marc::Common::Person' => \@{ \%attrs1 } );
 my @arr1 = %attrs1;
 my @arr2 = %attrs2;
 
 ## Now create the person objects:
-my $obj1 = new_ok( 'Marc::Common::Person' => \@arr1 ); # 2
-my $obj2 = new_ok( 'Marc::Common::Person' => \@arr2 ); # 3
+note( 'Object creation:' );
+my $obj1 = new_ok( 'Marc::Common::Person' => \@arr1 );
+my $obj2 = new_ok( 'Marc::Common::Person' => \@arr2 );
 
-ok( $obj1->full_name() eq 'Joe Blow', 'Testing $obj1->full_name()'); # 4
-ok( $obj2->full_name() eq 'Jane Doe', 'Testing $obj2->full_name()'); # 5
+## First Person:
+note( 'First Person:');
+## Non-attribute:
+ok( $obj1->full_name() eq 'Joe Blow', 'Testing $obj1->full_name()');
 
-ok( $obj1->f_name() eq 'Joe', 'Testing $obj1->f_name()');            # 6
-ok( $obj1->l_name() eq 'Blow', 'Testing $obj1->l_name()');           # 7
+## Attributes:
+for my $attr ( keys %attrs1 ){
+    ok( $obj1->$attr() eq $attrs1{ $attr }, "Testing \$obj1->$attr()");
+}
+## Wow the for loop is much cleaner than the individual ok's below ...
+#ok( $obj1->f_name()    eq 'Joe', 'Testing $obj1->f_name()');
+#ok( $obj1->l_name()    eq 'Blow', 'Testing $obj1->l_name()');
+#ok( $obj1->u_name()    eq 'jblow', 'Testing $obj1->u_name()');
+#ok( $obj1->w_phone()   eq '408-420-4702', 'Testing $obj1->w_phone()');
+#ok( $obj1->email()     eq 'joeblow@nowhere.net', 'Testing $obj1->email()');
+#ok( $obj1->cube_loc()  eq 'B-6969', 'Testing $obj1->l_name()');
 
-ok( $obj2->f_name() eq 'Jane', 'Testing $obj2->f_name()');           # 8
-ok( $obj2->l_name() eq 'Doe', 'Testing $obj2->l_name()');            # 9
+## Second Person:
+note( 'Second Person:');
+## Non-attribute:
+ok( $obj2->full_name() eq 'Jane Doe', 'Testing $obj2->full_name()');
+
+## Attributes:
+for my $attr ( keys %attrs2 ){
+    ok( $obj2->$attr() eq $attrs2{ $attr }, "Testing \$obj2->$attr()");
+}
 
 ## Tests that should fail:
+note( 'Tests that should fail:' );
 
 ## Missing required attribute:
 my %attrs3 = ( 
@@ -65,6 +85,7 @@ my %attrs3 = (
 );
 
 my $obj3;
-dies_ok { $obj3 = Marc::Common::Person->new( %attrs3 ) } 'Missing required arg'; # 10
+dies_ok { $obj3 = Marc::Common::Person->new( %attrs3 ) } 'Missing required arg';
+dies_ok { $obj2->foo() } 'Attempt to call non-existant $obj->$attribute() method';
 
-#done_testing();
+done_testing();
