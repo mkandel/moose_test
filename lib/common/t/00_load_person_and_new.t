@@ -8,7 +8,7 @@ use FindBin qw{ $Bin };
 use lib "$Bin/../lib";
 
 BEGIN{
-    use_ok( 'Marc::Common::Person' );
+    use_ok( 'Marc::Common::Employee' );
 }
 
 {
@@ -24,5 +24,5 @@ BEGIN{
 
     my @arr = %attrs1;
 
-    my $obj = new_ok( 'Marc::Common::Person' => \@arr );
+    my $obj = new_ok( 'Marc::Common::Employee' => \@arr );
 }

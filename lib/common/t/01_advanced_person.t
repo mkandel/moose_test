@@ -9,9 +9,9 @@ use Test::Exception;
 use FindBin qw{ $Bin };
 use lib "$Bin/../lib";
 
-#use Marc::Common::Person;
+#use Marc::Common::Employee;
 BEGIN{
-    use_ok( 'Marc::Common::Person' );
+    use_ok( 'Marc::Common::Employee' );
 }
 
 my %attrs1 = ( 
@@ -35,17 +35,17 @@ my %attrs2 = (
 
 ## new_ok requires an arrayref, coerce the hashes to arrays:
 ## this is pretty silly ... probably my own ignorance ...
-## this didn't work: my $obj1 = new_ok( 'Marc::Common::Person' => \@{ \%attrs1 } );
+## this didn't work: my $obj1 = new_ok( 'Marc::Common::Employee' => \@{ \%attrs1 } );
 my @arr1 = %attrs1;
 my @arr2 = %attrs2;
 
 ## Now create the person objects:
 note( 'Object creation:' );
-my $obj1 = new_ok( 'Marc::Common::Person' => \@arr1 );
-my $obj2 = new_ok( 'Marc::Common::Person' => \@arr2 );
+my $obj1 = new_ok( 'Marc::Common::Employee' => \@arr1 );
+my $obj2 = new_ok( 'Marc::Common::Employee' => \@arr2 );
 
-## First Person:
-note( 'First Person:');
+## First Employee:
+note( 'First Employee:');
 ## Non-attribute:
 ok( $obj1->full_name() eq 'Joe Blow', 'Testing $obj1->full_name()');
 
@@ -61,8 +61,8 @@ for my $attr ( keys %attrs1 ){
 #ok( $obj1->email()     eq 'joeblow@nowhere.net', 'Testing $obj1->email()');
 #ok( $obj1->cube_loc()  eq 'B-6969', 'Testing $obj1->l_name()');
 
-## Second Person:
-note( 'Second Person:');
+## Second Employee:
+note( 'Second Employee:');
 ## Non-attribute:
 ok( $obj2->full_name() eq 'Jane Doe', 'Testing $obj2->full_name()');
 
@@ -85,7 +85,7 @@ my %attrs3 = (
 );
 
 my $obj3;
-dies_ok { $obj3 = Marc::Common::Person->new( %attrs3 ) } 'Missing required arg';
+dies_ok { $obj3 = Marc::Common::Employee->new( %attrs3 ) } 'Missing required arg';
 dies_ok { $obj2->foo() } 'Attempt to call non-existant $obj->$attribute() method';
 
 done_testing();
