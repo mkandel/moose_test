@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 use 5.012;
-use Test::More skip_all => 'Not Implemented!';
+use Test::More skip_all => "Tests moved into lib/common/t/01_advanced_person.t.";
 
 
 use Time::HiRes qw( gettimeofday );
