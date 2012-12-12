@@ -49,6 +49,13 @@ sub full_name {
     return $self->f_name(). " ". $self->l_name();
 }
 
+## save() method, required by Marc::Common::Object role
+#sub save {
+#    my $self = shift;
+#
+#    return undef;
+#}
+
 1; # End of Module
 
 __END__

@@ -18,6 +18,9 @@ use namespace::autoclean;
 
 our $VERSION = '0.01';
 
+## Derived classes MUST implement "require"d methods
+requires 'save';
+
 has 'debug'   => (is => 'rw', isa => 'Str', required => 1, default => 0 );
 
 sub dump {

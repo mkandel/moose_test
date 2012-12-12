@@ -27,6 +27,12 @@ has 'cube_loc'          => (is => 'rw', isa => 'Str', required => 1 );
 has 'c_phone'           => (is => 'rw', isa => 'Str', default  => 'none', lazy => 1, );
 has 'h_phone'           => (is => 'rw', isa => 'Str', default  => 'none', lazy => 1, );
 
+sub save {
+    my $self = shift;
+
+    return undef;
+}
+
 1; # End of Module
 
 __END__
