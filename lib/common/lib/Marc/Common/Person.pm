@@ -23,15 +23,11 @@ my $id = 0;
 
 ## Moose attribute declarations:
 ## required:
-has 'f_name'            => (is => 'ro', isa => 'Str', required => 1 );
-has 'l_name'            => (is => 'ro', isa => 'Str', required => 1 );
-has 'u_name'            => (is => 'ro', isa => 'Str', required => 1 );
-has 'w_phone'           => (is => 'rw', isa => 'Str', required => 1 );
-has 'email'             => (is => 'rw', isa => 'Str', required => 1 );
-#has 'cube_loc'          => (is => 'rw', isa => 'Str', required => 1 );
-## optional
-#has 'c_phone'           => (is => 'rw', isa => 'Str', default  => 'none', lazy => 1, );
-#has 'h_phone'           => (is => 'rw', isa => 'Str', default  => 'none', lazy => 1, );
+has 'f_name'            => ( is => 'ro', isa => 'Str', required => 1 );
+has 'l_name'            => ( is => 'ro', isa => 'Str', required => 1 );
+has 'u_name'            => ( is => 'ro', isa => 'Str', required => 1 );
+has 'w_phone'           => ( is => 'rw', isa => 'Str', required => 1 );
+has 'email'             => ( is => 'rw', isa => 'Str', required => 1 );
 
 ## custom constructor
 has 'id'                => (

@@ -1,6 +1,6 @@
-Marc::Common version 0.0.1
+Marc::DB version 0.0.1
 
-This is what the name says it is ... its some common stuff, base classes only at the moment but I'll probably stick a Util module in here as well at some point.
+Base class fo DB interaction
 
 
 DEPENDENCIES
