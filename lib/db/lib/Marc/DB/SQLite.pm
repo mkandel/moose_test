@@ -23,6 +23,7 @@ our $VERSION = '0.01';
 
 sub create_db {
     ## Dummy implementation
+    ## no critic
     return undef;
 }
 

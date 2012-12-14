@@ -29,6 +29,7 @@ has 'paths'             => (is => 'rw', isa => 'ArrayRef[Str]', default  => 'non
 sub save {
     my $self = shift;
 
+    ## no critic
     return undef;
 }
 

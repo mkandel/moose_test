@@ -27,6 +27,7 @@ has 'dir'  =>(
 
 sub save {
     ## Dummy implementation
+    ## no critic
     return undef;
 }
 

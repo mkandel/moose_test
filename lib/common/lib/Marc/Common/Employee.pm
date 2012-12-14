@@ -30,6 +30,7 @@ has 'h_phone'           => (is => 'rw', isa => 'Str', default  => 'none', lazy =
 sub save {
     my $self = shift;
 
+    ## no critic
     return undef;
 }
 
