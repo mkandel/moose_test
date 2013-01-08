@@ -13,12 +13,13 @@ local $Data::Dumper::Indent = 3;
 local $| = 1;
 
 use Moose;
+use namespace::autoclean;
 ## Moose implementation
-extends 'Marc::Common::Person';
+with 'Marc::Common::Person';
 has 'pager'             => (is => 'rw', isa => 'Str');
 
-no Moose;
-__PACKAGE__->meta->make_immutable;
+#no Moose;
+#__PACKAGE__->meta->make_immutable;
 
 1; # End of Module
 

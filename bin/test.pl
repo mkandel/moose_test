@@ -21,7 +21,7 @@ local $Data::Dumper::Deparse  = 1;
 use FindBin;
 use lib "$FindBin::Bin/../lib/common/lib/";
 use lib "$FindBin::Bin/../lib/schedule/lib/";
-use Marc::Common::Person;
+use Marc::Common::Employee;
 use Marc::Schedule::Person;
 
 # TODO: Testing
@@ -55,7 +55,7 @@ my %attrs2 = (
     pager      => 'some@pager.adr',
 );
 
-my $p1 = Marc::Common::Person->new( %attrs1 );
+my $p1 = Marc::Common::Employee->new( %attrs1 );
 my $p2 = Marc::Schedule::Person->new( %attrs2 );
 
 #print Dumper $p1;

@@ -13,7 +13,7 @@ use lib "$Bin/../lib";
 my $tests_run = 0;
 
 BEGIN{
-    use_ok( 'Marc::Common::Person' );
+    use_ok( 'Marc::Common::Employee' );
 }
 $tests_run++;
 say "ran '$tests_run' tests";
@@ -38,6 +38,7 @@ say "ran '$tests_run' tests";
 
     my @arr = %attrs;
 
+<<<<<<< HEAD
     my $obj = new_ok( 'Marc::Common::Person' => \@arr );
     $tests_run++;
 
@@ -46,6 +47,9 @@ say "ran '$tests_run' tests";
         $tests_run++;
     }
 
+=======
+    my $obj = new_ok( 'Marc::Common::Employee' => \@arr );
+>>>>>>> d65ae16eadae101d24db2ded4baf60111cb85c9a
 }
 
 say "ran '$tests_run' tests";

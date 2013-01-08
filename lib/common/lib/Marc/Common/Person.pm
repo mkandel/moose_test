@@ -11,7 +11,7 @@ local $Data::Dumper::Indent = 3;
 local $| = 1;
 
 ## We'll try Moose
-use Moose;
+use Moose::Role;
 use namespace::autoclean;
 #use Marc::Common::Object;
 with 'Marc::Common::Object';
@@ -28,10 +28,10 @@ has 'l_name'            => (is => 'ro', isa => 'Str', required => 1 );
 has 'u_name'            => (is => 'ro', isa => 'Str', required => 1 );
 has 'w_phone'           => (is => 'rw', isa => 'Str', required => 1 );
 has 'email'             => (is => 'rw', isa => 'Str', required => 1 );
-has 'cube_loc'          => (is => 'rw', isa => 'Str', required => 1 );
+#has 'cube_loc'          => (is => 'rw', isa => 'Str', required => 1 );
 ## optional
-has 'c_phone'           => (is => 'rw', isa => 'Str', default  => 'none', lazy => 1, );
-has 'h_phone'           => (is => 'rw', isa => 'Str', default  => 'none', lazy => 1, );
+#has 'c_phone'           => (is => 'rw', isa => 'Str', default  => 'none', lazy => 1, );
+#has 'h_phone'           => (is => 'rw', isa => 'Str', default  => 'none', lazy => 1, );
 
 ## custom constructor
 has 'id'                => (
