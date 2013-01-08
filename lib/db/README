@@ -1,6 +1,6 @@
-Marc::Schedule version 0.0.1
+Marc::DB version 0.0.1
 
-This is what the name says it is ... its code for scheduling using Marc::Common::Person
+Base class fo DB interaction
 
 
 DEPENDENCIES

@@ -1,4 +1,4 @@
-package Marc::Common::Employee;
+package Marc::Common::ConfigParser;
 
 use warnings;
 use strict;
@@ -22,10 +22,9 @@ my $id = 0;
 
 ## Moose attribute declarations:
 ## required:
-has 'cube_loc'          => (is => 'rw', isa => 'Str', required => 1 );
-## optional
-has 'c_phone'           => (is => 'rw', isa => 'Str', default  => 'none', lazy => 1, );
-has 'h_phone'           => (is => 'rw', isa => 'Str', default  => 'none', lazy => 1, );
+has 'filename'          => (is => 'rw', isa => 'Str', required => 1 );
+has 'format'            => (is => 'rw', isa => 'Str', default  => 'yaml', required => 1, );
+has 'paths'             => (is => 'rw', isa => 'ArrayRef[Str]', default  => 'none', required => 1, );
 
 sub save {
     my $self = shift;
