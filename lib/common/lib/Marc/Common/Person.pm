@@ -46,11 +46,12 @@ sub full_name {
 }
 
 ## save() method, required by Marc::Common::Object role
-#sub save {
-#    my $self = shift;
-#
-#    return undef;
-#}
+sub save {
+    my $self = shift;
+
+    ## no critic
+    return undef;
+}
 
 1; # End of Module
 
