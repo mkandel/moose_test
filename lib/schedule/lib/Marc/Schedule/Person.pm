@@ -19,7 +19,7 @@ with 'Marc::Common::Person';
 has 'pager'             => (is => 'rw', isa => 'Str');
 
 #no Moose;
-#__PACKAGE__->meta->make_immutable;
+__PACKAGE__->meta->make_immutable;
 
 1; # End of Module
 

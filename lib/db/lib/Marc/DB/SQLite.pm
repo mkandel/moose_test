@@ -27,6 +27,8 @@ sub create_db {
     return undef;
 }
 
+__PACKAGE__->meta->make_immutable;
+
 1; # End of Module
 
 __END__

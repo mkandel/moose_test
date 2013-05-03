@@ -20,6 +20,8 @@ use Moose::Util::TypeConstraints;
 
 our $VERSION = '0.01';
 
+__PACKAGE__->meta->make_immutable;
+
 1; # End of Module
 
 __END__
