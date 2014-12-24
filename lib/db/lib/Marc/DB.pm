@@ -17,7 +17,7 @@ use Moose::Role;
 use namespace::autoclean;
 with 'Marc::Common::Object';
 
-our $VERSION = '0.01';
+our $VERSION = '0.0.1';
 
 1; # End of Module
 

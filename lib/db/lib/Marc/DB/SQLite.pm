@@ -19,7 +19,7 @@ use namespace::autoclean;
 use DBD::SQLite;
 with 'Marc::DB';
 
-our $VERSION = '0.01';
+our $VERSION = '0.0.1';
 
 sub create_db {
     ## Dummy implementation

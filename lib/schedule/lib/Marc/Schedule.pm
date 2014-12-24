@@ -10,7 +10,7 @@ local $Data::Dumper::Indent = 3;
 
 local $| = 1;
 
-our $VERSION = '0.01';
+our $VERSION = '0.0.1';
 
 1; # End of Module
 

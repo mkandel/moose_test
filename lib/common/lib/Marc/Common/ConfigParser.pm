@@ -15,7 +15,7 @@ use Moose;
 use namespace::autoclean;
 with 'Marc::Common::Person';
 
-our $VERSION = '0.01';
+our $VERSION = '0.0.1';
 
 ## class variable??!!??
 my $id = 0;

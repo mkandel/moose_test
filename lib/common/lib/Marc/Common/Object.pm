@@ -17,7 +17,7 @@ use Moose::Role;
 use namespace::autoclean;
 use Carp;
 
-our $VERSION = '0.01';
+our $VERSION = '0.0.1';
 
 ## Derived classes MUST implement "require"d methods
 requires 'save';

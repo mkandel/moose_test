@@ -19,7 +19,7 @@ use namespace::autoclean;
 use DBD::SQLite;
 with 'Marc::DB';
 
-our $VERSION = '0.01';
+our $VERSION = '0.0.1';
 
 has 'dir'  =>(
     is => 'rw', isa => 'Str', required => 1, default => './'

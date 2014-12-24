@@ -3,7 +3,7 @@ package Marc::Schedule::Person;
 use warnings;
 use strict;
 
-our $VERSION = '0.01';
+our $VERSION = '0.0.1';
 
 use Data::Dumper;
 # Some Data::Dumper settings:
