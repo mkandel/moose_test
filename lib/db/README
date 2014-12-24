@@ -1,6 +1,6 @@
 Marc::DB version 0.0.1
 
-Base class fo DB interaction
+Base class for DB interaction
 
 
 DEPENDENCIES
@@ -10,7 +10,7 @@ None.
 
 COPYRIGHT AND LICENCE
 
-Copyright (C) 2012, Marc
+Copyright (C) 2012-2015, Marc
 
 This code is released as Apathyware:
 "The code doesn't care what you do with it, and neither do I."
