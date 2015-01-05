@@ -74,22 +74,6 @@ sub some_function {
 
 =head1
 
-=item some_other_function() 
-
-    FUNCTION: Brief description of the function
-
-   ARGUMENTS: Describe Arguments
-           
-     RETURNS: Describe return value
-
-       NOTES: Any special notes
-
-=cut
-
-sub some_other_function {
-    return 0;
-}
-
 
 =head1 PRIVATE METHODS
 
@@ -111,21 +95,6 @@ sub _private_func{
 
 =head1
 
-=item _another_private_func()
-
-    FUNCTION: Brief description of the function
-
-   ARGUMENTS: Describe Arguments
-           
-     RETURNS: Describe return value
-
-       NOTES: Any special notes
-
-=cut
-
-sub _another_private_func{
-    return 0;
-}
 
 =head1 DEPENDENCIES
 
