@@ -159,7 +159,6 @@ sub is_class {
     return !$class->is_obj();
 }
 
-
 =over
 
 =item assert_is_class()

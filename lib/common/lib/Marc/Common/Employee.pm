@@ -1,5 +1,15 @@
 package Marc::Common::Employee;
 
+=head1 NAME
+
+Marc::Common::Employee
+
+=head1 VERSION
+
+Version 0.0.1
+
+=cut
+
 use warnings;
 use strict;
 
@@ -26,6 +36,22 @@ has 'cube_loc'          => (is => 'rw', isa => 'Str', required => 1 );
 ## optional
 has 'c_phone'           => (is => 'rw', isa => 'Str', default  => 'none', lazy => 1, );
 has 'h_phone'           => (is => 'rw', isa => 'Str', default  => 'none', lazy => 1, );
+
+=over
+
+=item save()
+
+    FUNCTION: Saves an object
+
+   ARGUMENTS: None
+
+     RETURNS: Nothing, croak's if save is unsuccessful
+
+        NOTE: DUMMY IMPLEMENTATION!!!
+
+=back
+
+=cut
 
 sub save {
     my $self = shift;

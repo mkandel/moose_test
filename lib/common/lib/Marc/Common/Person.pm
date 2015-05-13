@@ -1,5 +1,15 @@
 package Marc::Common::Person;
 
+=head1 NAME
+
+Marc::Common::Person
+
+=head1 VERSION
+
+Version 0.0.1
+
+=cut
+
 use warnings;
 use strict;
 
@@ -18,8 +28,6 @@ with 'Marc::Common::Object';
 
 our $VERSION = '0.0.1';
 
-## class variable??!!??
-my $id = 0;
 
 ## Moose attribute declarations:
 ## required:
@@ -36,14 +44,53 @@ has 'id'                => (
     required => 1,
     builder  => '_build_id',
 );
-sub _build_id { return $id++; }
+
+{
+    my $id = 0;
+    sub _build_id { return $id++; }
+}
+
+=over
+
+=item full_name()
+
+    FUNCTION: Returns the full name of the Person
+
+   ARGUMENTS: None
+
+     RETURNS: Nothing, croak's if save is unsuccessful
+
+        NOTE: DUMMY IMPLEMENTATION!!!
+
+=back
+
+=cut
 
 ## Method to retrieve textual full name
 sub full_name {
-    my $self = shift;
+    my ( $self, $order ) = @_;
+    $order //= 'first_first';
 
-    return $self->f_name(). " ". $self->l_name();
+    return $order eq 'first_first'
+        ? $self->f_name() . " " . $self->l_name()
+        : $self->l_name() . ", " . $self->f_name();
 }
+
+=over
+
+=item save()
+
+    FUNCTION: Saves an object
+
+   ARGUMENTS: None
+
+     RETURNS: Nothing, croak's if save is unsuccessful
+
+        NOTE: DUMMY IMPLEMENTATION!!!
+
+=back
+
+=cut
 
 ## save() method, required by Marc::Common::Object role
 sub save {

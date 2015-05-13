@@ -48,18 +48,12 @@ my $obj2 = new_ok( 'Marc::Common::Employee' => \@arr2 );
 note( 'First Employee:');
 ## Non-attribute:
 ok( $obj1->full_name() eq 'Joe Blow', 'Testing $obj1->full_name()');
+ok( $obj1->full_name( 'last_first' ) eq 'Blow, Joe', 'Testing $obj1->full_name( \'last_first\' )');
 
 ## Attributes:
 for my $attr ( keys %attrs1 ){
     ok( $obj1->$attr() eq $attrs1{ $attr }, "Testing \$obj1->$attr()");
 }
-## Wow the for loop is much cleaner than the individual ok's below ...
-#ok( $obj1->f_name()    eq 'Joe', 'Testing $obj1->f_name()');
-#ok( $obj1->l_name()    eq 'Blow', 'Testing $obj1->l_name()');
-#ok( $obj1->u_name()    eq 'jblow', 'Testing $obj1->u_name()');
-#ok( $obj1->w_phone()   eq '408-420-4702', 'Testing $obj1->w_phone()');
-#ok( $obj1->email()     eq 'joeblow@nowhere.net', 'Testing $obj1->email()');
-#ok( $obj1->cube_loc()  eq 'B-6969', 'Testing $obj1->l_name()');
 
 ## Second Employee:
 note( 'Second Employee:');
